@@ -19,7 +19,7 @@ class OfferpalNotificationTest < Test::Unit::TestCase
   def test_accessors
     assert_equal '1234', @offerpal.user_id
     assert_equal '5678', @offerpal.transaction_id
-    assert_equal 100, @offerpal.kreds_amount
+    assert_equal 100, @offerpal.currency
   end
   
   private
