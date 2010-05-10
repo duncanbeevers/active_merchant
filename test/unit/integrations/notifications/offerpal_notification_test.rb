@@ -20,6 +20,12 @@ class OfferpalNotificationTest < Test::Unit::TestCase
     assert_equal '1234', @offerpal.user_id
     assert_equal '5678', @offerpal.transaction_id
     assert_equal 100, @offerpal.currency
+    assert_equal false, @offerpal.customer_service_credit?
+  end
+  
+  def test_customer_service_credit?
+    notification = Offerpal::Notification.new(http_raw_data(post_data.merge(:error => 1)))
+    assert_equal true, notification.customer_service_credit?
   end
   
   private

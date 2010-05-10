@@ -20,7 +20,11 @@ module ActiveMerchant #:nodoc:
           def currency
             params['currency'].to_i
           end
-
+          
+          def customer_service_credit?
+            '1' == params['error']
+          end
+          
           # Acknowledge the transaction to Offerpal. This method has to be called after a new 
           # apc arrives. Offerpal will verify that all the information we received are correct and will return a 
           # ok or a fail. 
